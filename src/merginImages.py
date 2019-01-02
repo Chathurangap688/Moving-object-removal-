@@ -5,6 +5,7 @@ from collections import Counter
 import numpy as np
 import cv2
 import os
+import videotoimage
 
 def processingImages(img_data):
     print("Processing......................")
@@ -50,13 +51,14 @@ def processingImages(img_data):
 
 
 
-def openImageFiles():
+def openImageFiles(dir_name):
     files = []
-    dir_name = './'
-    dir_name += raw_input("enter input-folder name : ")
     for file in os.listdir(dir_name):
         files.append(file)
 
+    workingWithImages(files,dir_name)
+
+def workingWithImages( files,dir_name):
     img_data = []
     for file_name in files:
         file = dir_name+'/'+file_name
@@ -72,4 +74,18 @@ def openImageFiles():
 
 
 if __name__ == '__main__':
-    openImageFiles()
+	print 'if you have video input 1, have set of images input 2'
+	val = raw_input()
+	if val == '1':
+		print 'input video name with extension'
+		video = raw_input()
+		dir_name = './'
+		dir_name += videotoimage.imageMaker(video)
+		openImageFiles(dir_name)
+
+	elif val == '2':
+		dir_name = './'
+		dir_name += raw_input("enter input-folder name : ")
+		openImageFiles(dir_name)	
+		 
+

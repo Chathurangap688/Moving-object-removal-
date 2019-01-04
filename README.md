@@ -1,11 +1,16 @@
-# Moving-object-removal-
-acadamic project
+# Moving-object-removal-Toolkit
+Image Processing mini group project-CO342
 
-download or clone this project
+Download or Clone the Project
 
-copy all input images as a folder
- ## all images are only RGB images
+# Aditional Libries 
+ ->nupy
+ ->scipy
+ 
+# Task
+  Read set of images and remove moving object (peoples,vehicles) and return static image.
 
-run:
 
+# Run:
+    (install numpy and scipy from pip install then) 
     python main.py

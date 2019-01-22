@@ -89,7 +89,20 @@ class MovingObjectRemover:
         return ret_imgs
 
 App = MovingObjectRemover()
-images= App.open_image_set("../pond")
-stab_images=App.get_stabilized_imageset(images,5)
-App.compute_and_save(stab_images,'./Stabilized_output.jpg')
 
+path = raw_input("Insert Folder Path:")
+path_dest = raw_input("Insert image Path:")
+order =raw_input("Insert Stabilys Factor:")
+
+print("Started reading Images from "+path+" /...")
+images= App.open_image_set("../pond")
+print("Reading Completed.")
+
+
+print("Stabilizing....")
+stab_images=App.get_stabilized_imageset(images,int(order))
+print("Stabilizing Completed")
+
+print("Removing Moving Parts....")
+App.compute_and_save(stab_images,path_dest)
+print("Completed :"+path_dest +" is ready.")
